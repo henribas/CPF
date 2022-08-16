@@ -15,4 +15,4 @@ O resultado da multiplicação é somado: 70 + 18 + 40 + 28 + 42 + 40 + 32 + 6 +
 
 A soma é dividida por 11 (mencionado no artigo, lembra?): 264 / 11 = 25 com o resto 9 (prova: 25 x 11 = 275 e 275 + 9 = 284).
 
-Subtraindo o reto de 11 temos: 11 - 9 = 2.
+Subtraindo o reto de 11 temos: 11 - 9 = 2. Este é o primeiro digito verificador.
