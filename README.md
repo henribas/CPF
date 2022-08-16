@@ -23,3 +23,9 @@ Subtraindo o resto de 11 temos: 11 - 9 = 2. Este é o primeiro digito verificado
 | ---------------------------- | - |  - |  - |  - |  - |  - |  - | - |  - | - |
 | Multiplicador                |11 | 10 |  9 |  8 |  7 |  6 |  5 | 4 |  3 | 2 |
 | Resultado da multiplicação   |77 | 20 | 45 | 32 | 49 | 48 | 40 | 8 | 12 | 4 |
+
+O resultado da multiplicação é somado: 77 + 20 + 45 + 32 + 49 + 48 + 40 + 8 + 12 + 4 = 335.
+
+A soma é dividida por 11: 335 / 11 = 30 com o resto 5 (prova: 30 x 11 = 330 e 330 + 5 = 335).
+
+Subtraindo o resto de 11 temos: 11 - 5 = 6. Este é o segundo digito verificador.
