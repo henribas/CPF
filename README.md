@@ -9,3 +9,4 @@ Cada dígito do CPF é multiplicado por um fator. De 10 até 2, começando pela 
 | -------------------------- | - |  - |  - |  - |  - |  - |  - | - | - |
 | Multiplicador              |10 |  9 |  8 |  7 |  6 |  5 |  4 | 3 | 2 |
 | Resultado da multiplicação |70 | 18 | 40 | 28 | 42 | 40 | 32 | 6 | 8 |
+O resultado da multiplicação é somado: 70 + 18 + 40 + 28 + 42 + 40 + 32 + 6 + 8 = 264
