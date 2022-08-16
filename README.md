@@ -6,6 +6,6 @@ Os dois últimos números do CPF são dígitos verificadores e no artigo da Wiki
 Um exemplo prático pode facilitar o entendimento. Partindo de um CPF fictício válido e de número 725.478.824-26 pode ser aplicada a regra acima para melhor entendimento.
 Cada dígito do CPF é multiplicado por um fator. De 10 até 2, começando pela esquerda, como mostra a tabela abaixo.
 |CPF|7|2|5|4|7|8|8|2|4|
-|-----------------|
+|--------------------|
 |Multiplicador|10|9|8|7|6|5|4|3|2|
 |Resultado da multiplicação|70|18|40|28|42|40|32|6|8|
