@@ -11,6 +11,6 @@ Cada dígito do CPF é multiplicado por um fator. De 10 até 2, começando pela 
 | Content Cell  | Content Cell  |
 
 | CPF                        |7 | 2| 5| 4| 7| 8| 8|2|4 |
-| ---------------------------------------------------- |
+| -------------------------- | ----------------------- |
 | Multiplicador              |10| 9| 8| 7| 6| 5| 4|3|2 |
 | Resultado da multiplicação |70|18|40|28|42|40|32|6|8 |
