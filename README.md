@@ -12,3 +12,4 @@ Cada dígito do CPF é multiplicado por um fator. De 10 até 2, começando pela 
 | Resultado da multiplicação |70 | 18 | 40 | 28 | 42 | 40 | 32 | 6 | 8 |
 
 O resultado da multiplicação é somado: 70 + 18 + 40 + 28 + 42 + 40 + 32 + 6 + 8 = 264
+A soma é dividira por 11 (mencionado no artigo, lembra?): 264 / 11 = 24 com resto zero.
