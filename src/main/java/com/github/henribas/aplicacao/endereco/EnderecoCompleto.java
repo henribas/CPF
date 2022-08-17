@@ -1,6 +1,8 @@
 package com.github.henribas.aplicacao.endereco;
 
-final class EnderecoPadrao implements Endereco {
+import org.apache.commons.lang3.StringUtils;
+
+final class EnderecoCompleto implements Endereco {
 
     private final String cep;
     private final String logradouro;
@@ -42,13 +44,21 @@ final class EnderecoPadrao implements Endereco {
             return this;
         }
 
-        public EnderecoPadrao build() {
-            return new EnderecoPadrao(this);
+        public EnderecoCompleto build() {
+            return new EnderecoCompleto(this);
         }
 
     }
 
-    private EnderecoPadrao(Builder builder) {
+    private EnderecoCompleto(Builder builder) {
+        if (StringUtils.isBlank(builder.cep)) {
+            throw new IllegalArgumentException("Informe o CEP.");
+        }
+
+        if (builder.municipio == null) {
+            throw new IllegalArgumentException("Informe o município.");
+        }
+
         this.cep         = builder.cep;
         this.municipio   = builder.municipio;
         this.logradouro  = builder.logradouro;

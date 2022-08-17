@@ -10,15 +10,36 @@ final class CPFDidatico implements CPF {
 	private final String numero;
 
     private CPFDidatico(final String numero) {
+        validar(numero);
+		this.numero = removerFormatacao(numero);
+	}
+
+    private CPFDidatico(final String numero, final boolean validar) {
+        if (validar) {
+            validar(numero);
+        }
 		this.numero = removerFormatacao(numero);
 	}
 
     private CPFDidatico(final CPF cpf) {
+        if (!valido(cpf)) {
+            throw new IllegalArgumentException("Informe um CPF válido.");
+        }
 		this.numero = cpf.numero();
 	}
 
+    private void validar(final String numero) {
+        if (!valido(numero)) {
+            throw new IllegalArgumentException("Informe um número de CPF válido.");
+        }
+    }
+
 	static CPF de(final String numero) {
 		return new CPFDidatico(numero);
+	}
+
+    static CPF de(final String numero, final boolean validar) {
+		return new CPFDidatico(numero, validar);
 	}
 
     static CPF de(final CPF cpf) {
@@ -36,13 +57,10 @@ final class CPFDidatico implements CPF {
     }
 
     static String removerFormatacao(final String numero) {
-	    if (validar(numero)) {
-			return numero.replaceAll("\\D", "");
-		}
-		return "";
+		return numero.replaceAll("\\D", "");
 	}
 
-    static boolean validar(final String numero) {
+    static boolean valido(final String numero) {
         if (!informouNumero(numero)) {
             return false;
         }
@@ -139,11 +157,11 @@ final class CPFDidatico implements CPF {
 			numeros[10] == calcularSegundoDigitoVerificador(numeros);
 	}
 
-    static boolean validar(final CPF cpf) {
+    static boolean valido(final CPF cpf) {
 		if (cpf == null) {
             return false;
         }
-        return validar(cpf.numero());
+        return valido(cpf.numero());
     }
 
 	@Override

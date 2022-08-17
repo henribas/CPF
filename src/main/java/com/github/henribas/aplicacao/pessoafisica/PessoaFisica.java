@@ -56,4 +56,8 @@ public interface PessoaFisica {
         }
     }
 
+    public static PessoaFisica de(String nome, Sexo sexo, CPF cpf) {
+        return new PessoaFisicaNormal.Builder(nome, sexo, cpf).build();
+    }
+
 }
