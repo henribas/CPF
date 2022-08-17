@@ -1,6 +1,5 @@
 package com.github.henribas.aplicacao.endereco.pessoafisica;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
