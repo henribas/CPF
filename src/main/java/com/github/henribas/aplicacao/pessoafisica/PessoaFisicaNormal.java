@@ -3,6 +3,8 @@ package com.github.henribas.aplicacao.pessoafisica;
 import java.time.LocalDate;
 import java.time.Period;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.github.henribas.aplicacao.endereco.Endereco;
 import com.github.henribas.cpf.CPF;
 
@@ -58,6 +60,18 @@ final class PessoaFisicaNormal implements PessoaFisica {
     }
 
     private PessoaFisicaNormal(Builder builder) {
+        if (StringUtils.isBlank(builder.nome)) {
+            throw new IllegalArgumentException("Informe o nome.");
+        }
+
+        if (builder.sexo == null) {
+            throw new IllegalArgumentException("Informe o sexo.");
+        }
+
+        if (builder.cpf == null) {
+            throw new IllegalArgumentException("Informe o CPF.");
+        }
+
         nome            = builder.nome;
         sexo            = builder.sexo;
         cpf             = builder.cpf;
