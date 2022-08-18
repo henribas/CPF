@@ -1,4 +1,4 @@
-package com.github.henribas.aplicacao.endereco.pessoafisica;
+package com.github.henribas.aplicacao.pessoafisica;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -11,9 +11,10 @@ import org.junit.jupiter.api.Test;
 import com.github.henribas.aplicacao.endereco.Endereco;
 import com.github.henribas.aplicacao.endereco.Municipio;
 import com.github.henribas.aplicacao.endereco.UF;
-import com.github.henribas.aplicacao.pessoafisica.PessoaFisica;
 import com.github.henribas.aplicacao.pessoafisica.PessoaFisica.Sexo;
 import com.github.henribas.cpf.CPF;
+
+import nl.jqno.equalsverifier.EqualsVerifier;
 
 class PessoaFisicaTest {
     
@@ -127,6 +128,11 @@ class PessoaFisicaTest {
         PessoaFisica pf2 = PessoaFisica.de(nome, sexo, cpf, email, celular, dataNascimento, endereco);
 
         assertEquals(pf1, pf2);
+    }
+
+    @Test
+    void equalsContract() {
+        EqualsVerifier.forClass(PessoaFisicaNormal.class).withOnlyTheseFields("cpf").verify();
     }
 
 }
