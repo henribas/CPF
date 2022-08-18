@@ -113,4 +113,20 @@ class PessoaFisicaTest {
         assertEquals(42, pf.idade());
     }
 
+    @Test
+    void deveSerIgual() {
+        String nome = "Indiferente";
+        Sexo sexo = Sexo.MASCULINO;
+        CPF cpf = CPF.de("18163358866");
+        String email = "email@empresa.com.br";
+        String celular = "77 88888 7070";
+        LocalDate dataNascimento = LocalDate.of(1980, 7, 15);
+        Endereco endereco = Endereco.de("80530900", Municipio.de(1100304, "Vilhena", UF.RO));
+    
+        PessoaFisica pf1 = PessoaFisica.de(nome, sexo, cpf, email, celular, dataNascimento, endereco);
+        PessoaFisica pf2 = PessoaFisica.de(nome, sexo, cpf, email, celular, dataNascimento, endereco);
+
+        assertEquals(pf1, pf2);
+    }
+
 }

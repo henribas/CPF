@@ -36,6 +36,19 @@ class EnderecoTest {
     }
 
     @Test
+    void enderecoParcial() {
+        String cep = "80530900";
+        String logradouro = "Rua das Tibiras";
+        Municipio municipio = Municipio.de(4205407, "Florianópolis", UF.SC);
+        Endereco endereco = Endereco.de(cep, logradouro, municipio);
+    
+        assertTrue(
+            cep.equals(endereco.cep()) &&
+            logradouro.equals(endereco.logradouro()) &&
+            municipio.equals(endereco.municipio()));
+    }
+
+    @Test
     void enderecoCompleto() {
         String cep = "80530900";
         String logradouro = "Rua das Tibiras";

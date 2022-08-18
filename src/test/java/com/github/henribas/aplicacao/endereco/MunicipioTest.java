@@ -93,4 +93,12 @@ class MunicipioTest {
         assertEquals(11, municipio.uf().codigoIbge());
     }
 
+    @Test
+    void deveSerIgual() {
+        Municipio municipio1 = Municipio.de(1100205, "Porto Velho", UF.RO);
+        Municipio municipio2 = Municipio.de(1100205, "Porto Velho", UF.RO);
+        
+        assertEquals(municipio1, municipio2);
+    }
+
 }

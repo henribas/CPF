@@ -79,6 +79,31 @@ final class MunicipioBasico implements Municipio {
     }
 
     @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((codigoIbge == null) ? 0 : codigoIbge.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        MunicipioBasico other = (MunicipioBasico) obj;
+        if (codigoIbge == null) {
+            if (other.codigoIbge != null)
+                return false;
+        } else if (!codigoIbge.equals(other.codigoIbge))
+            return false;
+        return true;
+    }
+
+    @Override
     public String toString() {
         return "MunicipioBasico [codigoIbge=" + codigoIbge + ", nome=" + nome + ", uf=" + uf + "]";
     }

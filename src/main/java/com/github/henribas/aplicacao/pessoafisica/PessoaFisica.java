@@ -2,6 +2,8 @@ package com.github.henribas.aplicacao.pessoafisica;
 
 import java.time.LocalDate;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.github.henribas.aplicacao.endereco.Endereco;
 import com.github.henribas.cpf.CPF;
 
@@ -38,21 +40,33 @@ public interface PessoaFisica {
         }
         
         public static String descricao(String codigo) {
+            validarCodigo(codigo);
+            
             for (Sexo sexo : Sexo.values()) {
                 if (sexo.codigo().equals(codigo)) {
                     return sexo.descricao();
                 }
             }
-            return null;
+            
+            throw new IllegalArgumentException("Não foi encontrada descrição com o código informado: " + codigo + ". Informe corretamente o código.");
+        }
+
+        private static void validarCodigo(String codigo) {
+            if (StringUtils.isBlank(codigo)) {
+                throw new IllegalArgumentException("Informe o código.");
+            }
         }
         
         public static Sexo de(String codigo) {
+            validarCodigo(codigo);
+
             for (Sexo sexo : Sexo.values()) {
                 if (sexo.codigo().equals(codigo)) {
                     return sexo;
                 }
             }
-            return null;
+            
+            throw new IllegalArgumentException("Não foi encontrado sexo com o código informado: " + codigo + ". Informe corretamente o código.");
         }
     }
 

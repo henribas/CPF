@@ -175,11 +175,40 @@ class CPFTest {
     }
 
     @Test
+    void deveValidarComCpfPorPadrao() {
+        CPF cpf = null;
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            CPF.de(cpf);
+        });
+    
+        String mensagemEsperada = "Informe um CPF válido.";
+        String mensagemAtual = exception.getMessage();
+    
+        assertTrue(mensagemAtual.contains(mensagemEsperada));
+    }
+
+    @Test
     void deveIgnorarValidacaoQuandoInformado() {
         String numeroInvalido = "93053725991";
         CPF invalido = CPF.de(numeroInvalido, false);
     
         assertEquals(numeroInvalido, invalido.numero());
+    }
+
+    @Test
+    void deveFormatar() {
+        String numeroValido = "26149995470";
+        String formatado = "261.499.954-70";
+    
+        assertEquals(formatado, CPF.formatar(numeroValido));
+    }
+
+    @Test
+    void deveRemoverFormatacao() {
+        String numeroValido = "261.499.954-70";
+        String naoFormatado = "26149995470";
+    
+        assertEquals(naoFormatado, CPF.removerFormatacao(numeroValido));
     }
 
 }
