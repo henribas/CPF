@@ -35,4 +35,23 @@ class EnderecoTest {
         assertTrue(mensagemAtual.contains(mensagemEsperada));
     }
 
+    @Test
+    void enderecoCompleto() {
+        String cep = "80530900";
+        String logradouro = "Rua das Tibiras";
+        String numero = "70A";
+        String bairro = "Jurerê Internacional";
+        String complemento = "Apartamento 950, bloco A";
+        Municipio municipio = Municipio.de(4205407, "Florianópolis", UF.SC);
+        Endereco endereco = Endereco.de(cep, logradouro, numero, bairro, complemento, municipio);
+    
+        assertTrue(
+            cep.equals(endereco.cep()) &&
+            logradouro.equals(endereco.logradouro()) &&
+            numero.equals(endereco.numero()) && 
+            bairro.equals(endereco.bairro()) &&
+            complemento.equals(endereco.complemento()) &&
+            municipio.equals(endereco.municipio()));
+    }
+
 }

@@ -99,7 +99,7 @@ final class EnderecoCompleto implements Endereco {
 
     @Override
     public String toString() {
-        return "EnderecoPadrao [bairro=" + bairro + ", cep=" + cep + ", complemento=" + complemento + ", logradouro="
+        return "EnderecoCompleto [bairro=" + bairro + ", cep=" + cep + ", complemento=" + complemento + ", logradouro="
                 + logradouro + ", municipio=" + municipio + ", numero=" + numero + "]";
     }
     

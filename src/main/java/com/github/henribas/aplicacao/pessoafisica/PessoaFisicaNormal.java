@@ -120,5 +120,11 @@ final class PessoaFisicaNormal implements PessoaFisica {
     public Endereco endereco() {
         return endereco;
     }
+
+    @Override
+    public String toString() {
+        return "PessoaFisicaNormal [celular=" + celular + ", cpf=" + cpf + ", dataNascimento=" + dataNascimento
+                + ", email=" + email + ", endereco=" + endereco + ", nome=" + nome + ", sexo=" + sexo + "]";
+    }
     
 }

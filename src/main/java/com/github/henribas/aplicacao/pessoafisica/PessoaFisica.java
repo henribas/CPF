@@ -56,8 +56,25 @@ public interface PessoaFisica {
         }
     }
 
-    public static PessoaFisica de(String nome, Sexo sexo, CPF cpf) {
+    public static PessoaFisica de(final String nome, final Sexo sexo, final CPF cpf) {
         return new PessoaFisicaNormal.Builder(nome, sexo, cpf).build();
+    }
+
+    public static PessoaFisica de(
+        final String nome, 
+        final Sexo sexo, 
+        final CPF cpf, 
+        final String email,
+        final String celular,
+        final LocalDate dataNascimento,
+        final Endereco endereco) {
+
+        return new PessoaFisicaNormal.Builder(nome, sexo, cpf)
+            .email(email)
+            .celular(celular)
+            .dataNascimento(dataNascimento)
+            .endereco(endereco)
+            .build();
     }
 
 }
