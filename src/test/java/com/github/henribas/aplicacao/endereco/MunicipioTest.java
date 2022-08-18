@@ -14,7 +14,20 @@ class MunicipioTest {
     void oCodigoIbgeDeveSerInformado() {
         Integer codigoIbge = null;
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            Municipio.de(codigoIbge, "Acrelândia", UF.AC);
+            Municipio.de(codigoIbge, "Nulo", UF.AC);
+        });
+    
+        String mensagemEsperada = "Informe o código IBGE.";
+        String mensagemAtual = exception.getMessage();
+    
+        assertTrue(mensagemAtual.contains(mensagemEsperada));
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {0, -1, -4112345})
+    void oCodigoIbgeNaoPodeSerMenorNemIgualZero(Integer codigoIbge) {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Municipio.de(codigoIbge, "Zero e Negativo", UF.AC);
         });
     
         String mensagemEsperada = "Informe o código IBGE.";
@@ -91,6 +104,22 @@ class MunicipioTest {
         Municipio municipio = Municipio.de(1100205, "Porto Velho", UF.RO);
         
         assertEquals(11, municipio.uf().codigoIbge());
+    }
+
+    @Test
+    void codigoIbgeDeveSerIgualCodigoIbge() {
+        Integer codigoIbge = 1100205;
+        Municipio municipio = Municipio.de(codigoIbge, "Porto Velho", UF.RO);
+        
+        assertEquals(1100205, municipio.codigoIbge());
+    }
+
+    @Test
+    void nomeDeveSerIgualNome() {
+        String nome = "Florianópolis";
+        Municipio municipio = Municipio.de(4205407, nome, UF.SC);
+        
+        assertEquals(nome, municipio.nome());
     }
 
     @Test

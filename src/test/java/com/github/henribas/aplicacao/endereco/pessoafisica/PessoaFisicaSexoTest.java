@@ -1,5 +1,6 @@
 package com.github.henribas.aplicacao.endereco.pessoafisica;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -89,61 +90,21 @@ class PessoaFisicaSexoTest {
         assertTrue(mensagemAtual.contains(mensagemEsperada));
     }
 
-    /*@Test
-    void deveSerUmaSiglaExistente() {
-        String sigla = "PR";
-        UF uf = UF.de(sigla);
-    
-        assertEquals(sigla, uf.sigla());
-    }
-    
     @Test
-    void oCodigoIbgeNaoPodeSerNulo() {
-        Integer codigoIbge = null;
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            UF.de(codigoIbge);
-        });
-    
-        String mensagemEsperada = "Informe o código IBGE.";
-        String mensagemAtual = exception.getMessage();
-    
-        assertTrue(mensagemAtual.contains(mensagemEsperada));
-    }
-
-    @ParameterizedTest
-    @ValueSource(ints = {-10, -1257, 0})
-    void oCodigoIbgeNaoPodeSerMenorNemIgualZero(Integer codigoIbge) {
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            UF.de(codigoIbge);
-        });
-    
-        String mensagemEsperada = "Informe o código IBGE.";
-        String mensagemAtual = exception.getMessage();
-    
-        assertTrue(mensagemAtual.contains(mensagemEsperada));
+    void deveRetornarDescricaoCorretamente() {
+        assertEquals("Masculino", Sexo.MASCULINO.descricao());
     }
 
     @Test
-    void naoPodeSerUmCodigoIbgeInexistente() {
-        Integer codigoIbge = 999;
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            UF.de(codigoIbge);
-        });
-    
-        String mensagemEsperada = "Não foi encontrada UF com o código IBGE informado: " + codigoIbge + ". Informe corretamente o código do IBGE.";
-        String mensagemAtual = exception.getMessage();
-    
-        assertTrue(mensagemAtual.contains(mensagemEsperada));
+    void deveRetornarSexoEquivalenteAoCodigo() {
+        String codigo = "M";
+        assertEquals(Sexo.MASCULINO, Sexo.de(codigo));
     }
 
     @Test
-    void deveRetornarNomeEquivalenteAoCodigoIbge() {
-        assertEquals("Rondônia", UF.nome(11));
+    void deveRetornarDescricaoEquivalenteAoCodigo() {
+        String codigo = "M";
+        assertEquals("Masculino", Sexo.descricao(codigo));
     }
-
-    @Test
-    void deveRetornarNomeEquivalenteASigla() {
-        assertEquals("Santa Catarina", UF.nome("SC"));
-    }*/
     
 }
