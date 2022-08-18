@@ -70,7 +70,7 @@ public enum UF {
        		}
     	}
 
-        throw new IllegalArgumentException("Não foi encontrada UF com a sigla informada: " + sigla + ". Informe corretamente a sigla.");
+        throw new IllegalArgumentException("Não foi encontrado nome da UF com a sigla informada: " + sigla + ". Informe corretamente a sigla.");
     }
 	
 	private static void validarSigla(String sigla) {
@@ -88,7 +88,7 @@ public enum UF {
        		}
     	}
 
-       	throw new IllegalArgumentException("Não foi encontrada UF com o código IBGE informado: " + codigoIbge + ". Informe corretamente o código do IBGE.");
+       	throw new IllegalArgumentException("Não foi encontrado nome da UF com o código IBGE informado: " + codigoIbge + ". Informe corretamente o código do IBGE.");
     }
 	
 	private static void validarCodigoIbge(Integer codigoIbge) {
@@ -138,17 +138,25 @@ public enum UF {
         return map;
     }
 
+	public static boolean validar(String sigla) {
+		if (StringUtils.isBlank(sigla)) {
+			return false;
+		}
+
+		try {
+			UF.de(sigla);
+			return true;
+		} catch(IllegalArgumentException e) {
+			return false;
+		}
+	}
+
 	public static boolean validar(UF uf) {
 		if (uf == null) {
 			return false;
 		}
 
-		try {
-			UF.de(uf.codigoIbge);
-			return true;
-		} catch(IllegalStateException e) {
-			return false;
-		}
+		return validar(uf.sigla);
 	}
 
 }

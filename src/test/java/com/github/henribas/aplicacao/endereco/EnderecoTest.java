@@ -1,5 +1,6 @@
 package com.github.henribas.aplicacao.endereco;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -65,6 +66,22 @@ class EnderecoTest {
             bairro.equals(endereco.bairro()) &&
             complemento.equals(endereco.complemento()) &&
             municipio.equals(endereco.municipio()));
+    }
+
+    @Test
+    void toStringDeveSerIgual() {
+        String cep = "80530900";
+        String logradouro = "Rua das Tibiras";
+        String numero = "70A";
+        String bairro = "Jurerê Internacional";
+        String complemento = "Apartamento 950, bloco A";
+        Municipio municipio = Municipio.de(4205407, "Florianópolis", UF.SC);
+        Endereco endereco = Endereco.de(cep, logradouro, numero, bairro, complemento, municipio);
+
+        String toString = "EnderecoCompleto [bairro=" + bairro + ", cep=" + cep + ", complemento=" + complemento + ", logradouro="
+                + logradouro + ", municipio=" + municipio + ", numero=" + numero + "]";
+        
+        assertEquals(toString, endereco.toString());
     }
 
 }

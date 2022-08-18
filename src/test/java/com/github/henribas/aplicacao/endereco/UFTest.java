@@ -1,6 +1,7 @@
 package com.github.henribas.aplicacao.endereco;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -31,6 +32,32 @@ class UFTest {
         });
     
         String mensagemEsperada = "Informe a sigla.";
+        String mensagemAtual = exception.getMessage();
+    
+        assertTrue(mensagemAtual.contains(mensagemEsperada));
+    }
+
+    @Test
+    void deveExistirUmaSiglaParaONome() {
+        String sigla = "RX";
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            UF.nome(sigla);
+        });
+    
+        String mensagemEsperada = "Não foi encontrado nome da UF com a sigla informada: " + sigla + ". Informe corretamente a sigla.";
+        String mensagemAtual = exception.getMessage();
+    
+        assertTrue(mensagemAtual.contains(mensagemEsperada));
+    }
+
+    @Test
+    void deveExistirUmCodigoIbgeParaONome() {
+        Integer codigoIbge = 999;
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            UF.nome(codigoIbge);
+        });
+    
+        String mensagemEsperada = "Não foi encontrado nome da UF com o código IBGE informado: " + codigoIbge + ". Informe corretamente o código do IBGE.";
         String mensagemAtual = exception.getMessage();
     
         assertTrue(mensagemAtual.contains(mensagemEsperada));
@@ -102,8 +129,52 @@ class UFTest {
     }
 
     @Test
+    void deveRetornarUfEquivalenteAoCodigoIbge() {
+        assertEquals(UF.BA, UF.de(29));
+    }
+
+    @Test
     void deveRetornarNomeEquivalenteASigla() {
         assertEquals("Santa Catarina", UF.nome("SC"));
+    }
+
+    @Test
+    void deveTer27RegistrosNoMap() {
+        assertEquals(27, UF.map(UF.ufs()).size());
+    }
+
+    @Test
+    void deveTerParanaNoMap() {
+        assertEquals(UF.PR.nome(), UF.map(UF.ufs()).get(UF.PR.sigla()));
+    }
+
+    @Test
+    void deveTer27RegistrosNaList() {
+        assertEquals(27, UF.ufs().size());
+    }
+
+    @Test
+    void deveValidarUfNulaInvalida() {
+        UF invalida = null;
+        assertFalse(UF.validar(invalida));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"", " ", "  ", "      "})
+    void deveValidarUfVaziaInvalida(String sigla) {
+        assertFalse(UF.validar(sigla));
+    }
+
+    @Test
+    void deveValidarUfSiglaInvalida() {
+        String sigla = "ZZ";
+        assertFalse(UF.validar(sigla));
+    }
+
+    @Test
+    void deveValidarUfValida() {
+        UF valida = UF.SC;
+        assertTrue(UF.validar(valida));
     }
 
 }
