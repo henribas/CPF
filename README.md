@@ -29,3 +29,14 @@ O resultado da multiplicação é somado: 77 + 20 + 45 + 32 + 49 + 48 + 40 + 8 +
 A soma é dividida por 11: 335 / 11 = 30 com o resto 5 (prova: 30 x 11 = 330 e 330 + 5 = 335).
 
 Subtraindo o resto de 11 temos: 11 - 5 = 6. Este é o segundo digito verificador.
+
+
+# Algoritmo
+
+De posse da teoria, pode ser iniciada a codificação de um algoritmo que represente um CPF.
+
+Algumas escolhas importantes devem ser mencionadas, pois impactam no design e no uso da API de CPF. São elas:
+
+1. O CPF fará parte de uma API interna para uso nas aplicações.
+2. Terá uma interface pública com métodos estáticos e uma implementação privada (ou mais, se necessário).
+
