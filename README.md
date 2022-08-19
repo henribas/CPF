@@ -31,7 +31,7 @@ A soma é dividida por 11: 335 / 11 = 30 com o resto 5 (prova: 30 x 11 = 330 e 3
 Subtraindo o resto de 11 temos: 11 - 5 = 6. Este é o segundo dígito verificador.
 
 
-# Algoritmo
+## Algoritmo
 
 De posse da teoria, pode ser iniciada a codificação de um algoritmo que represente um CPF.
 
@@ -44,7 +44,37 @@ O que compõe um CPF?
 Um CPF tem um número, formatação e validação. O código abaixo representa um CPF e será argumentado na sequência.
 
 ```
-function test() {
-  console.log("notice the blank line before this function?");
+public interface CPF {
+
+    public String numero();
+    
+    public static String formatar(final String numero) {
+        return CPFDidatico.formatar(numero);
+    }
+
+    public static String removerFormatacao(final String numero) {
+	    return CPFDidatico.removerFormatacao(numero);
+	}
+
+    public static boolean valido(final String numero) {
+        return CPFDidatico.valido(numero);
+    }
+
+    public static boolean valido(final CPF cpf) {
+        return CPFDidatico.valido(cpf);
+    }
+
+    public static CPF de(final String numero) {
+        return CPFDidatico.de(numero);
+    }
+
+    public static CPF de(final String numero, final boolean validar) {
+        return CPFDidatico.de(numero, validar);
+    }
+
+    public static CPF de(final CPF cpf) {
+        return CPFDidatico.de(cpf);
+    }
+    
 }
 ```
