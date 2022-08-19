@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import nl.jqno.equalsverifier.EqualsVerifier;
+
 class MunicipioTest {
     
     @Test
@@ -128,6 +130,11 @@ class MunicipioTest {
         Municipio municipio2 = Municipio.de(1100205, "Porto Velho", UF.RO);
         
         assertEquals(municipio1, municipio2);
+    }
+
+    @Test
+    void equalsContract() {
+        EqualsVerifier.forClass(MunicipioBasico.class).withOnlyTheseFields("codigoIbge").verify();
     }
 
 }

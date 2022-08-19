@@ -7,6 +7,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
+import nl.jqno.equalsverifier.EqualsVerifier;
+
 class CPFTest {
 
     @Test
@@ -188,6 +190,32 @@ class CPFTest {
     }
 
     @Test
+    void deveValidarCpfPorPadrao() {
+        CPF invalido = CPF.de("93053725991", false);
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            CPF.de(invalido);
+        });
+    
+        String mensagemEsperada = "Informe um CPF válido.";
+        String mensagemAtual = exception.getMessage();
+    
+        assertTrue(mensagemAtual.contains(mensagemEsperada));
+    }
+
+    @Test
+    void deveValidarQuandoSolicitado() {
+        String valido = "64266548257";
+        assertEquals(valido, CPF.de("64266548257", true).numero());
+    }
+
+    @Test
+    void cpfDeCpfValido() {
+        CPF valido = CPF.de("64266548257");
+    
+        assertEquals(valido, CPF.de(valido));
+    }
+
+    @Test
     void deveIgnorarValidacaoQuandoInformado() {
         String numeroInvalido = "93053725991";
         CPF invalido = CPF.de(numeroInvalido, false);
@@ -209,6 +237,24 @@ class CPFTest {
         String naoFormatado = "26149995470";
     
         assertEquals(naoFormatado, CPF.removerFormatacao(numeroValido));
+    }
+
+    @Test
+    void oSegundoDigitoVerificadorDeveSerValido() {
+        String segundoDigitoVerificadorInvalido = "261.499.954-71";
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            CPF.de(segundoDigitoVerificadorInvalido);
+        });
+    
+        String mensagemEsperada = "Informe um número de CPF válido.";
+        String mensagemAtual = exception.getMessage();
+    
+        assertTrue(mensagemAtual.contains(mensagemEsperada));
+    }
+
+    @Test
+    void equalsContract() {
+        EqualsVerifier.forClass(CPFDidatico.class).verify();
     }
 
 }

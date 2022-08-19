@@ -116,7 +116,7 @@ class PessoaFisicaTest {
 
     @Test
     void deveSerIgual() {
-        String nome = "Indiferente";
+        String nome = "Igual";
         Sexo sexo = Sexo.MASCULINO;
         CPF cpf = CPF.de("18163358866");
         String email = "email@empresa.com.br";
@@ -128,6 +128,24 @@ class PessoaFisicaTest {
         PessoaFisica pf2 = PessoaFisica.de(nome, sexo, cpf, email, celular, dataNascimento, endereco);
 
         assertEquals(pf1, pf2);
+    }
+
+    @Test
+    void toStringDeveSerIgual() {
+        String nome = "Igual";
+        Sexo sexo = Sexo.MASCULINO;
+        CPF cpf = CPF.de("18163358866");
+        String email = "email@empresa.com.br";
+        String celular = "77 88888 7070";
+        LocalDate dataNascimento = LocalDate.of(1980, 7, 15);
+        Endereco endereco = Endereco.de("80530900", Municipio.de(1100304, "Vilhena", UF.RO));
+    
+        PessoaFisica pessoaFisica = PessoaFisica.de(nome, sexo, cpf, email, celular, dataNascimento, endereco);
+
+        String toString = "PessoaFisicaNormal [celular=" + celular + ", cpf=" + cpf + ", dataNascimento=" + dataNascimento
+        + ", email=" + email + ", endereco=" + endereco + ", nome=" + nome + ", sexo=" + sexo + "]";
+        
+        assertEquals(toString, pessoaFisica.toString());
     }
 
     @Test

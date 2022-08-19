@@ -73,7 +73,7 @@ final class CPFDidatico implements CPF {
             return false;
         }
 
-		return digitosVerificadoresIguais(numeros(numero));
+		return osDigitosVerificadoresSaoIguais(numeros(numero));
     }
 
     private static boolean informouNumero(final String numero) {
@@ -151,10 +151,13 @@ final class CPFDidatico implements CPF {
 		return 11 - resto;
 	}
 
-	private static boolean digitosVerificadoresIguais(final int[] numeros) {
+	private static boolean osDigitosVerificadoresSaoIguais(final int[] numeros) {
+        int primeiroDigitoVerificador = numeros[9];
+        int segundoDigitoVerificador = numeros[10];
+
 		return 
-			numeros[9] == calcularPrimeiroDigitoVerificador(numeros) && 
-			numeros[10] == calcularSegundoDigitoVerificador(numeros);
+            (primeiroDigitoVerificador == calcularPrimeiroDigitoVerificador(numeros)) && 
+            (segundoDigitoVerificador == calcularSegundoDigitoVerificador(numeros));
 	}
 
     static boolean valido(final CPF cpf) {
