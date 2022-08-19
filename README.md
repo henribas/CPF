@@ -41,6 +41,7 @@ Algumas escolhas importantes devem ser mencionadas, pois impactam no design e no
 2. Terá uma interface pública com métodos estáticos e uma implementação privada (ou mais, se necessário).
 
 O que compõe um CPF?
+
 Um CPF tem um número, formatação e validação. O código abaixo representa um CPF e será argumentado na sequência.
 
 ```
