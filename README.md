@@ -40,3 +40,11 @@ Algumas escolhas importantes devem ser mencionadas, pois impactam no design e no
 1. O CPF fará parte de uma API interna para uso nas aplicações.
 2. Terá uma interface pública com métodos estáticos e uma implementação privada (ou mais, se necessário).
 
+O que compõe um CPF?
+Um CPF tem um número, formatação e validação. O código abaixo representa um CPF e será argumentado na sequência.
+
+```
+function test() {
+  console.log("notice the blank line before this function?");
+}
+```
