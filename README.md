@@ -81,3 +81,6 @@ public interface CPF {
 ```
 
 A interface tem um atributo: o número do CPF. Tem os métodos, todos estáticos, para formatar, para remover formatação, para validar e mais três métodos para criação de um objeto CPF.
+
+Outra decisão de design importante: é melhor armazenar o CPF (na base de dados) como uma sequência de onze caracteres numéricos sem formatação (geralmente char(11) ou character(11), o nome pode variar com o banco de dados utilizado).
+
