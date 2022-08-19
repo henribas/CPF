@@ -79,3 +79,5 @@ public interface CPF {
     
 }
 ```
+
+A interface tem um atributo: o número do CPF. Tem os métodos, todos estáticos, para formatar, para remover formatação, para validar e mais três métodos para criação de um objeto CPF.
