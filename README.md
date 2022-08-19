@@ -15,9 +15,9 @@ O resultado da multiplicação é somado: 70 + 18 + 40 + 28 + 42 + 40 + 32 + 6 +
 
 A soma é dividida por 11 (mencionado no artigo, lembra?): 284 / 11 = 25 com o resto 9 (prova: 25 x 11 = 275 e 275 + 9 = 284).
 
-Subtraindo o resto de 11 temos: 11 - 9 = 2. Este é o primeiro digito verificador.
+Subtraindo o resto de 11 temos: 11 - 9 = 2. Este é o primeiro dígito verificador.
 
-É necessário repetir o processo acima mas desta vez incluindo o dígito verificador encontrado. Portanto, cada dígito do CPF é multiplicado por um fator. De 11 até 2, começando pela esquerda, como mostra a tabela abaixo.
+É necessário repetir o processo acima, mas desta vez incluindo o dígito verificador encontrado. Portanto, cada dígito do CPF é multiplicado por um fator. De 11 até 2, começando pela esquerda, como mostra a tabela abaixo.
 
 | CPF com 1 dígito verificador | 7 |  2 |  5 |  4 |  7 |  8 |  8 | 2 |  4 | 2 |
 | ---------------------------- | - |  - |  - |  - |  - |  - |  - | - |  - | - |
@@ -28,7 +28,7 @@ O resultado da multiplicação é somado: 77 + 20 + 45 + 32 + 49 + 48 + 40 + 8 +
 
 A soma é dividida por 11: 335 / 11 = 30 com o resto 5 (prova: 30 x 11 = 330 e 330 + 5 = 335).
 
-Subtraindo o resto de 11 temos: 11 - 5 = 6. Este é o segundo digito verificador.
+Subtraindo o resto de 11 temos: 11 - 5 = 6. Este é o segundo dígito verificador.
 
 
 # Algoritmo
